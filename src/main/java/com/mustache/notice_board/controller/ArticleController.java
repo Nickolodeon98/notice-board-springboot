@@ -1,6 +1,7 @@
 package com.mustache.notice_board.controller;
 
 import com.mustache.notice_board.domain.dto.ArticleDto;
+import com.mustache.notice_board.domain.entity.Article;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class ArticleController {
     @PostMapping("/posts")
     public String createArticle(ArticleDto articleDto) {
         log.info(articleDto.toString());
-        return articleDto.toString();
+        Article article = articleDto.toEntity(); // ArticleDto 에서 Article 을 생성한다.
+        return "";
     }
 }
